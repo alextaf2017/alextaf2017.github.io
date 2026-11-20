@@ -87,10 +87,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:32px 0 40px}
     <h2>Tech Stack</h2>
     <p class="muted">Technologies and methods used or explored in my projects.</p>
     <div class="group"><b>Languages</b><div class="tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">SQL</span></div></div>
-    <div class="group"><b>Data &amp; ML libraries</b><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span></div></div>
-    <div class="group"><b>Data engineering</b><div class="tags"><span class="tag">Apache Spark</span><span class="tag">Apache Iceberg</span></div></div>
+    <div class="group"><b>Data &amp; ML libraries</b><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">statsmodels</span><span class="tag">Hugging Face Transformers</span><span class="tag">Optuna</span></div></div>
+    <div class="group"><b>Data engineering</b><div class="tags"><span class="tag">Apache Spark</span><span class="tag">Apache Iceberg</span><span class="tag">PostgreSQL</span></div></div>
     <div class="group"><b>Tools</b><div class="tags"><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Jupyter</span></div></div>
-    <div class="group"><b>Methods</b><div class="tags"><span class="tag">Machine Learning</span><span class="tag">Statistical Modelling</span><span class="tag">Bayesian Networks</span><span class="tag">NLP / RAG</span></div></div>
+    <div class="group"><b>Methods</b><div class="tags"><span class="tag">Machine Learning</span><span class="tag">Statistical Modelling</span><span class="tag">Bayesian Networks</span><span class="tag">NLP / RAG</span><span class="tag">GLM</span><span class="tag">Model monitoring</span></div></div>
   </div>
 </section>
 
@@ -130,14 +130,13 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:32px 0 40px}
     <article class="card proj">
       <div class="num">3</div>
       <h3>Insurance Risk Analytics Platform</h3>
-      <p class="sub">Insurance data engineering and risk analytics</p>
-      <p>A data platform for insurance policy and claims data, built as the foundation for future risk analytics.</p>
-      <h4>First milestone (completed)</h4>
-      <ul><li>Apache Spark and Apache Iceberg</li><li>Bronze / Silver / Gold architecture</li><li>Data quality checks and data contracts</li><li>S3-compatible storage</li><li>Deterministic train/test split</li></ul>
-      <h4>Dataset</h4>
-      <ul><li>678,013 policies</li><li>26,639 claims</li></ul>
-      <h4>Roadmap (not yet implemented)</h4>
-      <ul><li class="road">Exploratory data analysis</li><li class="road">Predictive modelling, GLM, frequency/severity</li><li class="road">NLP and Responsible AI</li><li class="road">Deployment and monitoring</li></ul>
+      <p class="sub">End-to-end insurance risk platform: data lake, pricing models, NLP triage, serving and business case</p>
+      <p>Seven milestones on public data: lakehouse, statistical and ML models, responsible-AI checks, a monitored API and an economic evaluation.</p>
+      <h4>Completed milestones</h4>
+      <ul><li>Spark + Iceberg lakehouse (Bronze / Silver / Gold), data contracts, quality checks</li><li>EDA, inference and SQL on freMTPL2 (678,013 policies, 26,639 paid claims)</li><li>Claim frequency: Poisson GLM (splines) vs gradient boosting, Optuna, Lorenz/Gini</li><li>NLP triage of NHTSA complaints: TF-IDF cascade + fine-tuned MiniLM</li><li>Risk and responsible AI: group calibration, feature outage, drift, model cards, risk register</li><li>FastAPI + Docker (multi-stage, non-root), CI tests, PSI-based monitoring</li><li>Business case: market simulation with adverse selection, NPV, scenarios</li></ul>
+      <h4>Selected results (held-out test)</h4>
+      <ul><li>Frequency, Gini: boosting 0.318 vs GLM 0.290; deviance 0.4535 vs 0.4616</li><li>GLM is competitive up to about 27,000 training policies</li><li>NLP triage: recall 0.868 reviewing the top 5% of complaints</li><li>Removing Bonus-Malus: Gini 0.318 to 0.155 (feature-outage test)</li></ul>
+      <p class="note">Public datasets only; no real portfolio or dated claims. Claims without an amount are ambiguous and change the sign of the pricing gain. Single transformer training run; no fallback model without Bonus-Malus. The business case is a simulation with stated assumptions, not a forecast.</p>
       <div class="spacer"></div>
       <a class="btn" href="https://github.com/alextaf2017/insurance-risk-platform" target="_blank" rel="noopener">View repository ↗</a>
     </article>
@@ -179,7 +178,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:32px 0 40px}
       <div><b>Data Science</b><span>Exploratory analysis, predictive modelling</span></div>
       <div><b>Statistics</b><span>Inference, regression, SEM, Bayesian methods</span></div>
       <div><b>Insurance &amp; Finance</b><span>Risk analytics, claims analysis</span></div>
-      <div><b>Data Engineering</b><span>Lakehouse architecture, data quality</span></div>
+      <div><b>Data Engineering</b><span>Lakehouse architecture, data quality, serving</span></div>
       <div><b>Artificial Intelligence</b><span>RAG, LLMs, information retrieval</span></div>
     </div>
   </div>
